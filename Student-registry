@@ -1,0 +1,53 @@
+# 📚 Student Registry Exercise
+
+This is a simple Python exercise for practicing **lists, dictionaries, and string formatting**.
+
+---
+
+## 📌 Description
+The program stores information about students in a list of dictionaries.  
+Each student has:
+- name  
+- birth year  
+- address  
+- grades in several subjects  
+
+---
+
+## 🎯 Tasks
+1. Ask the user to type a student's name (full name or part of it).  
+2. Print all the student's information in a formatted sentence.  
+3. If no match is found, display **"Student not found."**  
+
+✅ Note: The program uses modern Python **f-strings** for printing.  
+
+---
+
+## 🐍 Example Solution
+
+```python
+students = [
+    {"name": "John Smith", "birth_year": 2005, "address": "12 Green St",
+     "grades": {"Math": 85, "English": 90, "Physics": 78}},
+    {"name": "Emily Johnson", "birth_year": 2006, "address": "34 Blue Rd",
+     "grades": {"Math": 92, "English": 88, "Physics": 95}},
+    {"name": "Michael Brown", "birth_year": 2004, "address": "56 Red Ave",
+     "grades": {"Math": 70, "English": 65, "Physics": 72}}
+]
+
+student_name = input("Choose a Student: ")
+
+def information(name):
+    name = name.lower().strip()
+    for s in students:
+        if name in s["name"].lower():
+            print(
+                f"Student {s['name']} was born in year {s['birth_year']}, "
+                f"lives at {s['address']}, and his grades are: "
+                f"Math {s['grades']['Math']}, English {s['grades']['English']} "
+                f"and Physics {s['grades']['Physics']}."
+            )
+            return
+    print(f"Student with name '{name}' was not found.")
+
+information(student_name)
